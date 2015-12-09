@@ -574,7 +574,7 @@ char *getCASService(const request_rec *r, const cas_cfg *c)
 			port_str = apr_psprintf(r->pool, "%%3a%u", port);
 
 		service = apr_pstrcat(r->pool, scheme, "%3a%2f%2f",
-			r->server->server_hostname,
+			r->hostname,
 			port_str, escapeString(r, r->uri),
 			(r->args != NULL && *r->args != '\0' ? "%3f" : ""),
 			escapeString(r, r->args), NULL);
